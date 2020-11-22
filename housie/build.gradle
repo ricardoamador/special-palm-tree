@@ -1,0 +1,24 @@
+apply plugin: 'java'
+apply plugin: 'eclipse'
+apply plugin: 'application'
+
+mainClassName = 'housie.game.Game'
+
+repositories { 
+    mavenCentral() 
+}
+
+jar {
+    baseName = 'housie'
+    version =  '1.0'
+}
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+dependencies {
+    testCompile "junit:junit:4.12"
+
+    testCompile group: 'org.mockito', name: 'mockito-core', version: '3.6.0'
+    testCompile 'org.mockito:mockito-inline:2.13.0'
+}
