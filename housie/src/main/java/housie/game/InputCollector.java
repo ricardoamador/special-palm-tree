@@ -165,7 +165,7 @@ public class InputCollector {
         boolean parsedSuccessfully = false;
 
         do {
-            System.out.print("Press 'N' to generate next number.");
+            System.out.print("Press 'N' to generate next number. ");
             try {
                 String line = scanner.nextLine();
                 line.trim();

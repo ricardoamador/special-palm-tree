@@ -152,7 +152,7 @@ public class Game {
      */
     public static void main(String[] args) {
         System.out.println("\n ***** Let's play housie *****");
-        System.out.println("\nNote: Press 'Q' to quit any time\n");
+        System.out.println("\nNote: Press 'Q' to quit any time.\n");
         InputCollector inputCollector = InputCollector.getInstance();
         GameSettings gameSettings = inputCollector.collectUserInput();
         Game g = new Game(gameSettings);
