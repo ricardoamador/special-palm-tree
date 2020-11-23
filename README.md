@@ -10,13 +10,9 @@ Housie is the Indian version of Bingo. The rules to housie as coded in this proj
 * If a number called by the Caller appears on your ticket it is marked.
 * All players track and mark the numbers called by the caller.
 * The winner being the first person to mark off all of the their numbers making a winning combination. The following are the Winning Combinations:
-
-** Top Line - all numbers on the top line of the ticket are matched.
-
-** First Five - the first five numbers called on a ticket.
-
-** Full House - All numbers on a ticket are matched.
-
+  - Top Line - all numbers on the top line of the ticket are matched.
+  - First Five - the first five numbers called on a ticket.
+  - Full House - All numbers on a ticket are matched.
 * A player can have more than one winning combination.
 * If a particular winning combination is claimed it cannot be claimed again.
 
