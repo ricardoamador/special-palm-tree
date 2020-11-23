@@ -9,6 +9,8 @@ public class Ticket {
 
     private final List<List<Integer>> ticketGrid;
 
+    private int checkForFirstFive = 0;
+
     /**
      * Create a new ticket.
      * @param newTicketGrid the new TicketGrid to store.
