@@ -2,7 +2,9 @@
 
 The code contained in this repository is a working game of Housie.
 
-### Game explanation
+#### Author: Ricardo Amador
+
+### Game Explanation
 
 Housie is the Indian version of Bingo. The rules to housie as coded in this project are the following:
 * Every player will have a ticket with numbers
