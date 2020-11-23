@@ -27,9 +27,10 @@ To run the Game application in this project you can checkout the code and perfor
 
 Here is a sample game run:
 
---> java -cp build/libs/housie-1.0.jar housie.game.Game
+```
+# java -cp build/libs/housie-1.0.jar housie.game.Game
 
- ***** Let's play housie *****
+***** Let's play housie *****
 
 Note: Press 'Q' to quit any time
 
@@ -89,3 +90,4 @@ Player1 : Full House
 Player2 : Top Line and First Five
 Player3 : Nothing
 =============================================================
+```
