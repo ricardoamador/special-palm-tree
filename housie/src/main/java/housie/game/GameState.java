@@ -32,9 +32,15 @@ public class GameState {
      */
     public synchronized void setWinCondition(WinCondition condition, Player player) {
         state.putIfAbsent(condition, player);
-        if (state.size() == 3) {
-            gameOver.set(true);
+        for (WinCondition w : WinCondition.values()) {
+            if (!state.containsKey(w)) {
+                return;
+            }
         }
+        gameOver.set(true);
+//        if (state.size() == 3) {
+//            gameOver.set(true);
+//        }
     }
 
     /**

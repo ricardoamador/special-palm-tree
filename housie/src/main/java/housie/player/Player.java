@@ -23,6 +23,8 @@ public class Player implements Observer, Comparable<Player> {
 
     private final boolean[] numbersCalled;
 
+    private int callFirstFive = 1;
+
     /**
      * Create a new Player.
      * @param name simple string name for this player.
@@ -73,10 +75,14 @@ public class Player implements Observer, Comparable<Player> {
         numbersCalled[number] = true;
         List<WinCondition> winsThisTurn = new ArrayList<>(3);
 
-        if (!gameState.hasWinCondition(WinCondition.FIRST_FIVE)) {
-            if (ticket.hasFirstFive(numbersCalled)) {
-                gameState.setWinCondition(WinCondition.FIRST_FIVE, this);
-                winsThisTurn.add(WinCondition.FIRST_FIVE);
+        if (callFirstFive < 5) {
+            callFirstFive++;
+        } else {
+            if (!gameState.hasWinCondition(WinCondition.FIRST_FIVE)) {
+                if (ticket.hasFirstFive(numbersCalled)) {
+                    gameState.setWinCondition(WinCondition.FIRST_FIVE, this);
+                    winsThisTurn.add(WinCondition.FIRST_FIVE);
+                }
             }
         }
 
