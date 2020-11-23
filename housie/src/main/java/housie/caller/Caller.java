@@ -1,5 +1,6 @@
 package housie.caller;
 
+import java.util.NoSuchElementException;
 import java.util.Set;
 import java.util.TreeSet;
 
@@ -41,13 +42,10 @@ public class Caller {
      * @return the next random number the players of the game will try to match. If the
      * called numbers has exceeded the number range chosen for the game this will return
      * -1.
+     * @throws NoSuchElementException if there are no remaining numbers to call.
      */
-    public int callNumber() {
-        int nextNumber = numberGenerator.getNextNumber();
-        if (nextNumber != -1) {
-            calledNumbers.add(nextNumber);
-        }
-        return nextNumber;
+    public int callNumber() throws NoSuchElementException {
+        return numberGenerator.getNextNumber();
     }
 
     /**

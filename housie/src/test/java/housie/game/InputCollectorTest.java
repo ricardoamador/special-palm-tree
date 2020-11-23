@@ -6,12 +6,16 @@ import org.junit.Test;
 
 import java.io.ByteArrayInputStream;
 import java.io.InputStream;
+import java.lang.reflect.Field;
 import java.util.Scanner;
 
 import static org.junit.Assert.assertEquals;
 import static org.mockito.Mockito.*;
 
 public class InputCollectorTest {
+
+    private static final String SCANNER_FIELD = "scanner";
+    private Field scannerField;
 
     @Before
     public void setUp() {
@@ -101,4 +105,13 @@ public class InputCollectorTest {
         inputCollectorSpy.nextNumberInput();
         verify(inputCollectorSpy, times(1)).nextNumberInput();
     }
+
+//    public void scannerAccess() throws Exception {
+//        InputCollector inputCollector = InputCollector.getInstance();
+//        scannerField = InputCollector.class.getDeclaredField(SCANNER_FIELD);
+//        scannerField.setAccessible(true);
+//        Scanner testScanner = (Scanner) scannerField.get(inputCollector);
+//
+//        scannerField.setAccessible(false);
+//    }
 }

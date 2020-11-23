@@ -7,6 +7,8 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
+import java.util.NoSuchElementException;
+
 public class NumberGeneratorTest {
     
     private NumberGenerator numberGenerator;
@@ -50,14 +52,13 @@ public class NumberGeneratorTest {
         }
     }
 
-    @Test
+    @Test (expected = NoSuchElementException.class)
     public void testGetBeyondCapacity() {
         for (int i = 0; i < CAPACITY; i++) {
             int nextInt = numberGenerator.getNextNumber();
             assertTrue(nextInt <= CAPACITY);
         }
 
-        int beyond = numberGenerator.getNextNumber();
-        assertEquals(-1, beyond);
+        numberGenerator.getNextNumber();
     }
 }
