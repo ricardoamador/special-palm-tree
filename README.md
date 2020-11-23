@@ -2,6 +2,8 @@
 
 The code contained in this repository is a working game of Housie.
 
+### Game explanation
+
 Housie is the Indian version of Bingo. The rules to housie as coded in this project are the following:
 * Every player will have a ticket with numbers
 * The numbers on a single ticket are unique.
@@ -16,12 +18,14 @@ Housie is the Indian version of Bingo. The rules to housie as coded in this proj
 * A player can have more than one winning combination.
 * If a particular winning combination is claimed it cannot be claimed again.
 
+### Build and Run the Game
 
 To run the Game application in this project you can checkout the code and perform the following steps:
-1. gradle clean build
-2. java -cp /path/to/build/libs/housie-1.0.jar housie.game.Game
+1. cd to main project directory 
+2. gradle clean build
+3. java -cp /path/to/build/libs/housie-1.0.jar housie.game.Game
 
-Here is a sample game run:
+### Sample Output
 
 ```
 # java -cp build/libs/housie-1.0.jar housie.game.Game
