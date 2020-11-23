@@ -23,7 +23,7 @@ public class Player implements Observer, Comparable<Player> {
 
     private final boolean[] numbersCalled;
 
-    private int callFirstFive = 0;
+    private int callFirstFive = 1;
 
     /**
      * Create a new Player.
