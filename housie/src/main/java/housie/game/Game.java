@@ -7,6 +7,7 @@ import housie.ticketing.TicketGenerator;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+import java.util.NoSuchElementException;
 
 /**
  * The main entry point for the Application. This Object keeps track of all the parts of
@@ -79,18 +80,12 @@ public class Game {
      * principle players would always respond in the same order which does not happen in a
      * real game.
      */
-    private void updatePlayers() {
+    private void updatePlayers() throws NoSuchElementException {
         Collections.shuffle(players);
 
         inputCollector.nextNumberInput();
 
         int nextNumber = caller.callNumber();
-        if (nextNumber == -1) {
-            // no more numbers so we end the housie.game
-            gameState.setGameOver(true);
-            System.out.println("\n ***** Game Over *****");
-            return;
-        }
 
         System.out.println("Next number is: " + nextNumber);
         for (Player p : players) {
@@ -140,7 +135,11 @@ public class Game {
      */
     public void run() {
         while (!gameState.isGameOver()) {
-            updatePlayers();
+            try {
+                updatePlayers();
+            } catch(NoSuchElementException ex) {
+                System.out.println("\n ***** Game Over *****");
+            }
         }
 
         showResults();

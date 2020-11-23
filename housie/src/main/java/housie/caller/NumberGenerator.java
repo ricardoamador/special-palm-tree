@@ -1,8 +1,6 @@
 package housie.caller;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
+import java.util.*;
 
 /**
  * The NumberGenerator class generates a pseudo random number. It keeps a range of numbers then
@@ -14,13 +12,8 @@ public class NumberGenerator {
     /**
      * The list of numbers the NumberGenerator will draw from.
      */
-    private List<Integer> numbers;
-
-    /**
-     * A pointer to the next number to call. Do this instead of destroying the
-     * number list.
-     */
-    private int pointer;
+    // TODO use a queue instead to remove the need for a pointer.
+    private Queue<Integer> numbers;
 
     /**
      * The max number to call. Dictates the range of numbers to pull from.
@@ -39,7 +32,6 @@ public class NumberGenerator {
         }
         
         this.range = range;
-        this.pointer = 0;
         initializeNumberRange();
     }
 
@@ -48,23 +40,22 @@ public class NumberGenerator {
      * the Collections API to shuffle the numbers into a random order.
      */
     public void initializeNumberRange() {
-        numbers = new ArrayList<>(range);
+        List<Integer> numberList = new ArrayList<>(range);
         
         for (int i = 0; i < range; i++) {
-            numbers.add(i, i + 1);
+            numberList.add(i + 1);
         }
         
-        Collections.shuffle(numbers);
+        Collections.shuffle(numberList);
+        this.numbers = new LinkedList<>(numberList);
     }
 
     /**
      * @return the next number in the list to the caller.
+     * @throws NoSuchElementException if the numbers queue is empty.
      */
-    public int getNextNumber() {
-        if (pointer >= range) {
-            return -1;
-        }
-        return numbers.get(pointer++);
+    public int getNextNumber() throws NoSuchElementException {
+        return numbers.remove();
     }
 
     /**
@@ -72,8 +63,6 @@ public class NumberGenerator {
      * range value.
      */
     public void reset() {
-        numbers = null;
-        pointer = 0;
         initializeNumberRange();
     }
 }

@@ -5,6 +5,8 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
+import java.util.NoSuchElementException;
+
 import static org.junit.Assert.*;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
@@ -49,13 +51,13 @@ public class CallerTest {
         }
     }
 
-    @Test
+    @Test (expected = NoSuchElementException.class)
     public void callBeyondCapacity() {
         Caller caller = getNewCaller(5);
         for (int i = 0; i < 5; i++) {
-            assertNotEquals(-1, caller.callNumber());
+            caller.callNumber();
         }
-        assertEquals(-1, caller.callNumber());
+        caller.callNumber();
     }
 
     private Caller getNewCaller(int numberOfNumbers) {
