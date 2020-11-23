@@ -12,7 +12,6 @@ public class NumberGenerator {
     /**
      * The list of numbers the NumberGenerator will draw from.
      */
-    // TODO use a queue instead to remove the need for a pointer.
     private Queue<Integer> numbers;
 
     /**

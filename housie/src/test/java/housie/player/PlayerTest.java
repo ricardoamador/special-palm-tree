@@ -64,6 +64,10 @@ public class PlayerTest {
         String playerName = "Player1";
         Player p1 = new Player(playerName, ticket, gameState, gameSettings);
         p1.update(45);
+        p1.update(46);
+        p1.update(47);
+        p1.update(48);
+        p1.update(49);
         assertTrue(gameState.hasWinCondition(WinCondition.FIRST_FIVE));
         Player winner = gameState.getWinner(WinCondition.FIRST_FIVE);
         assertEquals(p1, winner);
