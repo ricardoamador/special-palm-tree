@@ -55,7 +55,6 @@ public class Player implements Observer, Comparable<Player> {
         numbersCalled = new boolean[gameSettings.getNumberRange() + 1];
         System.out.println("\nTicket for player " + name);
         ticket.printTicket();
-        System.out.println("\n");
     }
 
     /**
