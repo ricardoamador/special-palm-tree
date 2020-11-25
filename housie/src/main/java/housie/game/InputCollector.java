@@ -49,15 +49,15 @@ public class InputCollector {
     public GameSettings collectUserInput() {
         try {
 
-            int numberRange = processIntegerInput("Enter the number range (1-n): ", 90);
+            int numberRange = processIntegerInput("Enter the number range (1-n): ",  GameSettings.NUMBER_RANGE_DEF);
 
-            int numberOfPlayers = processIntegerInput("Enter number of players playing the game: ", 3);
+            int numberOfPlayers = processIntegerInput("Enter number of players playing the game: ", GameSettings.NUMBER_OF_PLAYERS_DEF);
 
-            Pair pair = processPatternInput("Enter ticket size (rows x cols): ", 3, 10);
+            Pair pair = processPatternInput("Enter ticket size (rows x cols): ", GameSettings.ROWS_IN_TICKET_DEF, GameSettings.COLS_IN_TICKET_DEF);
             int ticketRows = pair.getX();
             int ticketCols = pair.getY();
 
-            int numbersPerRow = processIntegerInput("Enter numbers per row: ", 5);
+            int numbersPerRow = processIntegerInput("Enter numbers per row: ", GameSettings.NUMBERS_PER_ROW_DEF);
             return new GameSettings(numberRange, numberOfPlayers, ticketRows, ticketCols, numbersPerRow);
         } catch (NoSuchElementException ex) {
             System.out.println("Incorrect input supplied, starting the game with defaults.");
@@ -104,7 +104,7 @@ public class InputCollector {
     @SuppressWarnings("SameParameterValue")
     protected Pair processPatternInput(String message, int rowDef, int colDef) {
         String line;
-        Pair pair = new Pair(3, 10);
+        Pair pair = new Pair(rowDef, colDef);
 
         System.out.print(message);
         line = scanner.nextLine();
