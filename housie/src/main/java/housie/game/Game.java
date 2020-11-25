@@ -68,7 +68,7 @@ public class Game {
                     gameSettings));
         }
 
-        System.out.println("*** Tickets created successfully ***");
+        System.out.println("\n*** Tickets created successfully ***");
     }
 
     /**
