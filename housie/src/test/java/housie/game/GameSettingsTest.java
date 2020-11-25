@@ -3,6 +3,7 @@ package housie.game;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
 
 public class GameSettingsTest {
 
@@ -14,5 +15,11 @@ public class GameSettingsTest {
         assertEquals(GameSettings.ROWS_IN_TICKET_DEF, gameSettings.getTicketRows());
         assertEquals(GameSettings.COLS_IN_TICKET_DEF, gameSettings.getTicketColumns());
         assertEquals(GameSettings.NUMBERS_PER_ROW_DEF, gameSettings.getNumbersPerRow());
+    }
+
+    @Test
+    public void gameSettingsToString() {
+        GameSettings gameSettings = new GameSettings();
+        assertNotNull(gameSettings.toString());
     }
 }

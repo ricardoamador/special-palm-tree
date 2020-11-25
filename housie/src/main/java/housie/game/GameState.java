@@ -2,7 +2,6 @@ package housie.game;
 
 import java.util.HashMap;
 import java.util.Map;
-import java.util.concurrent.atomic.AtomicBoolean;
 
 import housie.player.Player;
 
@@ -14,14 +13,14 @@ public class GameState {
 
     private final Map<WinCondition, Player> state;
 
-    private final AtomicBoolean gameOver;
+    private boolean gameOver;
 
     /**
      * Create a GameState tracking object.
      */
     public GameState() {
         this.state = new HashMap<>();
-        this.gameOver = new AtomicBoolean(false);
+        this.gameOver = false;
     }
 
     /**
@@ -30,17 +29,14 @@ public class GameState {
      * @param condition the winning condition to add to the map.
      * @param player the player who won with that condition.
      */
-    public synchronized void setWinCondition(WinCondition condition, Player player) {
+    public void setWinCondition(WinCondition condition, Player player) {
         state.putIfAbsent(condition, player);
         for (WinCondition w : WinCondition.values()) {
             if (!state.containsKey(w)) {
                 return;
             }
         }
-        gameOver.set(true);
-//        if (state.size() == 3) {
-//            gameOver.set(true);
-//        }
+        this.gameOver = true;
     }
 
     /**
@@ -48,7 +44,7 @@ public class GameState {
      * @param condition the winning condition to check for.
      * @return true if the winning condition has been recorded, false if it has not.
      */
-    public synchronized boolean hasWinCondition(WinCondition condition) {
+    public boolean hasWinCondition(WinCondition condition) {
         return state.containsKey(condition);
     }
 
@@ -66,14 +62,14 @@ public class GameState {
      * @return true if the game is over, false otherwise.
      */
     public boolean isGameOver() {
-        return gameOver.get();
+        return gameOver;
     }
 
     /**
      * @param end set the game over condition.
      */
     public void setGameOver(boolean end) {
-        gameOver.set(end);
+        gameOver = end;
     }
 
     /**
