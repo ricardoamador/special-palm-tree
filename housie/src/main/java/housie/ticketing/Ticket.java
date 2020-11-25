@@ -81,11 +81,13 @@ public class Ticket {
      * Display the ticket grid stored.
      */
     public void printTicket() {
+
         for (List<Integer> integers : ticketGrid) {
+            StringBuilder stringBuilder = new StringBuilder();
             for (Integer integer : integers) {
-                System.out.print(integer + " ");
+                stringBuilder.append(String.format("%d\t", integer));
             }
-            System.out.println();
+            System.out.println(stringBuilder.toString());
         }
     }
 }
